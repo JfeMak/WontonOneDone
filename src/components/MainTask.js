@@ -45,14 +45,17 @@ export default function MainTask(props) {
                     {props.currentTime[2] < 10 ? "0" + props.currentTime[2] : props.currentTime[2]}
                 </h4>
             </div>
-            <button 
-                className = "main-task-button"
-                onClick = {handleClick}
-            >
-                <b>
-                    D O N E !
-                </b>
-            </button>
+            <div className = "main-task-button-container">
+                <button 
+                    className = "main-task-button"
+                    onClick = {handleClick}
+                >
+                    <b>
+                        D O N E !
+                    </b>
+                </button>
+            </div>
+            
         </div>
     )
 }

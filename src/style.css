@@ -147,8 +147,14 @@ body {
     align-items: center;
 }
 
+.main-task-button-container {
+    display: flex;
+    justify-content: center;
+}
+
 .main-task-button {
-    margin: 4% 40%;
+    margin: 4%;
+    align-self: center;
     width: 20%;
     padding: 2%;
     font-size: 150%;
