@@ -21,6 +21,15 @@ export default function AddTask(props) {
         })
     }
 
+    function handleClick() {
+        props.createNewTask(taskData.taskName, taskData.targetTime, taskData.importance)
+        setTaskData({
+            taskName : "",
+            targetTime : "",
+            importance : ""
+        })
+    }
+
     // Display the Add Task component
     return (
         !props.breakTime && <div className = "add-task">
@@ -53,7 +62,7 @@ export default function AddTask(props) {
             </div>
             <button 
                 className = "add-task-button" 
-                onClick = {() => props.createNewTask(taskData.taskName, taskData.targetTime, taskData.importance)}
+                onClick = {handleClick}
             >
                 <b>
                     Add
