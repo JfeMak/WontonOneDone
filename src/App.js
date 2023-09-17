@@ -28,12 +28,14 @@ export default function App() {
   const [hasBreakTime, setHasBreakTime] = React.useState(true)
   // Track whether the user still has the default main task
   const [isMainTask, setIsMainTask] = React.useState(false)
+  // Track the starting time of the Main Task
+  const [startTime, setStartTime] = React.useState(Date.now())
 
   // Timer for the main task
   React.useEffect(() => {
     let intervalId;
     if (isMainTask) {
-      intervalId = setInterval(() => setMainTaskTime(mainTaskTime + 1), 1000);
+      intervalId = setInterval(() => setMainTaskTime((Date.now() - startTime) / 1000 | 0), 1000);
     }
     return () => clearInterval(intervalId);
   }, [isMainTask, mainTaskTime]);
@@ -41,6 +43,7 @@ export default function App() {
   // Reset the timer
   function reset() {
     setMainTaskTime(0)
+    setStartTime(Date.now())
   }
 
   // Function for creating a new task with a given name, target time, and importance
